@@ -7,7 +7,7 @@ var timer;
 var listening = true;
 
 var rndReplies = ["3.14?", "Ya hi!", ":D"];
-
+//.
 var re = new RegExp(/\bpi\b/);
 
 var config = {
