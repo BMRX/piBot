@@ -1,5 +1,5 @@
-Forgive my organization, Github is something I'm not used to yet.
+Raspberry Pi Bot
 
-HimTalk is a tcl script for Eggdrop, the goal is to make the bot more interactive on the front end.
+Powered by node-irc and node.js
 
-A small dive into a new type of project, just a dude having fun. :D
+I use this mostly as a backup, this is my adventure through the world of Javascript. :D
