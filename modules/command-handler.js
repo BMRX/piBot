@@ -9,6 +9,8 @@ module.exports = function (client, from, to, text, message) {
         messageToSend: ''
     }
 
+    console.log(opts);
+
     function externalCommand(opts) {
             if (fs.existsSync('./commands/' + opts.command + '.js')) { // check if we have an command file
                 var output = require('../commands/' + opts.command + '.js')(client, from, to, text, message);
@@ -17,7 +19,6 @@ module.exports = function (client, from, to, text, message) {
                 }
             } else {
                 console.log("Not a command");
-                return;
             }
     };
 

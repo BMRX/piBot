@@ -4,6 +4,7 @@ var config = require('./config.json');
 var commandHandler = require('./modules/command-handler.js');
 var pinglisten = require('./observers/something.js');
 var interaction = require('./observers/interaction.js');
+//var time = require('./observers/time.js');
 
 /*  
     -----------------------------------------------------------------------------------
