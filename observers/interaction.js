@@ -22,8 +22,6 @@ module.exports = function (client, from, to, text, message) {
         command: String(text.split(' ')[0]),
         argument: text.substring(String(text.split(' ')[0]).length).trim()
     }
-    console.log(opts.command + opts.argument);
-    console.log(opts);
     if(opts.command && opts.argument == reH + ' ' + reP){
         client.say(to, 'Hello! ' + from + '.');
     }
