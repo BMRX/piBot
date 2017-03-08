@@ -1,3 +1,12 @@
+/*
+    ---------------------------------------------------------------------------------------
+     When user calls help command outputs list of available commands, not sure if public
+     TODO: arguments 
+      ex: pi help hello
+      op: hello | pi says hello
+    ---------------------------------------------------------------------------------------
+*/
+
 var fs = require('fs');
 module.exports = function (client, from, to, text, message) {
 
