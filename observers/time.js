@@ -1,29 +1,42 @@
 var d = new Date();
 
-var oldTime = {
+var debugOldTime = {
     hr: d.getHours(),
     mn: d.getMinutes(),
     sc: d.getSeconds()
 };
 
-var curTime = {};
+var debugCurTime = {};
 
-console.log("Old Time: \n" + "HR: " + oldTime.hr + " MN: " + oldTime.mn + " SC: " + oldTime.sc);
+var oldTime = d.getTime();
+var curTime = {};
+var timeHandler;
+
+console.log("Old Time: \n" + oldTime);
 getTime();
 
 function getTime() {
-    curTime = {
+    if (timeHandler) {
+        clearTimeout(timeHandler);
+        timeHandler = null;
+    }
+    var debugCurTime = {
         hr: new Date().getHours(),
         mn: new Date().getMinutes(),
         sc: new Date().getSeconds()
-    }
-    setTimeout(function() { getTime(); }, 1000);
-    if(curTime.mn > (oldTime.mn + 1) && curTime.sc >= 0){
+    };
+    
+    curTime = new Date().getTime();
+    timeHandler = setTimeout(function () {
+        getTime();
+    }, 1000);
+    if (curTime > (oldTime + 3.6e+6 / 4)) {
         oldTime = curTime;
-        console.log("Old Time: \n" + "HR: " + oldTime.hr + " MN: " + oldTime.mn + " SC: " + oldTime.sc);
-        this.clearTimeout(getTime);
+        console.log("Time Started: " + "HR: " + debugOldTime.hr + " MN: " + debugOldTime.mn + " SC: " + debugOldTime.sc);
+        console.log("Time Ended: " + "HR: " + debugCurTime.hr + " MN: " + debugCurTime.mn + " SC: " + debugCurTime.sc);
         console.log("saved!");
+        clearTimeout(timeHandler);
     }
-    console.log("Current Time: \n" + "HR: " + curTime.hr + " MN: " + curTime.mn + " SC: " + curTime.sc);
+    console.log("Current Time: \n" + curTime);
     return curTime;
 }
