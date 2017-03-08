@@ -1,9 +1,4 @@
 var fs = require('fs');
-
-/*
- * String to hold !help command answer
- * -----------------------------------------------------------------------------
- */
 module.exports = function (client, from, to, text, message) {
 
   string = "";

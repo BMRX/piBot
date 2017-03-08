@@ -2,6 +2,7 @@
     ---------------------------------------------------------------------------------------
      I dunno this is a thing that listens for any sentence that contains "bmrx" in it. lol
      It can save all of these sentences to a file, it can also give them all on request.
+     The commands here are not listed under "help"
     ---------------------------------------------------------------------------------------
 */
 var fs = require('fs');
