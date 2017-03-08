@@ -4,5 +4,5 @@ module.exports = function (client, from, to, text, message) {
         argument: String(text.split(' ')[3])
     }
 
-    console.log(opts);
+    console.log(opts.command);
 }
