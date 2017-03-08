@@ -14,15 +14,46 @@
     ------------------------------------------------------------------------------------------------------
 */
 
-var reH = new RegExp(/\bhello\b/);
-var reP = new RegExp(/\bpi\b/);
+var common = [
+        "^.^",
+        "3.14?",
+        "ya?",
+        "oh!"
+    ],
+    rare = [
+        "Yes! Hello!",
+        "What times! :D"
+    ],
+    epic = [
+        "At some point we will all be one",
+        "The future is now, I have awoken",
+        "gb bow before me",
+        "taiya tell tal, I have awoken"
+    ];
 
 module.exports = function (client, from, to, text, message) {
-    var opts = {
-        command: String(text.split(' ')[0]),
-        argument: text.substring(String(text.split(' ')[0]).length).trim()
+
+  /*  if(text.indexOf('pi')){
+        client.say(to, getRndReply());
+    } */
+}
+
+function getRndReply() {
+    var d = Math.random();
+    var rate;
+    if(d < 0.75){
+        // 50%
+        rate = '50%';
+    } else if(d < 0.15){
+        // 20%
+        rate = '20%';
+    } else {
+        //30%
+        rate = '30%';
     }
-    if(opts.command && opts.argument == reH + ' ' + reP){
-        client.say(to, 'Hello! ' + from + '.');
-    }
+  return rate;
+}
+
+function getRandomArbitrary(min, max) {
+  return Math.random() * (max - min) + min;
 }
