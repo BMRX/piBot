@@ -7,17 +7,11 @@
 */
 var fs = require('fs');
 var config = require('../config.json');
-var d = new Date();
+
 pingString = new Array();
-var oldTime = {
-    hr: d.getHours(),
-    mn: d.getMinutes(),
-    sc: d.getSeconds()
-};
-var curTime = {};
+
 module.exports = function (client, from, to, text, message) {
-    getTime();
-    console.log(oldTime);
+    
     var opts = {
         command: String(text.split(' ')[1]),
         argument: text.substring(String(text.split(' ')[2]).length).trim(),
@@ -63,18 +57,3 @@ module.exports = function (client, from, to, text, message) {
     }
 }
 
-function getTime() {
-    curTime = {
-        hr: new Date().getHours(),
-        mn: new Date().getMinutes(),
-        sc: new Date().getSeconds()
-    }
-    setTimeout(function() { getTime(); }, 1000);
-    if(curTime.sc > (oldTime.sc + 30)){
-        oldTime = curTime;
-        this.clearTimeout(getTime);
-        console.log("saved!");
-    }
-    console.log(curTime);
-    return curTime;
-}
